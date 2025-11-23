@@ -678,6 +678,599 @@ if (container) {
 }
 </script>
 </body>
+</html>    return `artifacts/${effectiveAppId}/public/data/${CANDIDATES_COLLECTION_NAME}`;
+}
+
+// --- INITIAL DATA (The complete list of 253 candidates) ---
+const NAME_LIST = [
+{"id":1,"name":"Abdallah Fadi Al Halaby"}, {"id":2,"name":"Abdel Wahab Mazen Kabbout"}, {"id":3,"name":"Abdelhamid Mahmoud Masri"}, {"id":4,"name":"Abdo Fouad Tannous"}, {"id":5,"name":"Adriano Gerald Bayeh"}, {"id":6,"name":"Ahmad Abd El Karim El Jundy"}, {"id":7,"name":"Ahmad Hassan Miari"}, {"id":8,"name":"Aisha Muhammad Esper"}, {"id":9,"name":"Alaa Mohamad Kassem"}, {"id":10,"name":"Ali Mostapha Taleb"}, {"id":11,"name":"Amer Mohammad Abed"}, {"id":12,"name":"Amine Abdul Razzak Sattout"}, {"id":13,"name":"Amira Abdullah Aboriala"}, {"id":14,"name":"Anthony Bernard Ayoub"}, {"id":15,"name":"Anthony Christian-Serge Jebara"}, {"id":16,"name":"Anthony Mikhael El Hayek"}, {"id":17,"name":"Anthony Nizar Malek"}, {"id":18,"name":"Anthony Sarkis Bou Toubia"}, {"id":19,"name":"Anthony Sarkis Mjally"}, {"id":20,"name":"Antoine Ibrahim Mazraani"}, {"id":21,"name":"Antoine Tony Franjieh"}, {"id":22,"name":"Antonelli Miled Lichaa"}, {"id":23,"name":"Antonio Bakhos Maatouk"}, {"id":24,"name":"Antonio Dany Salame"}, {"id":25,"name":"Antoun Rafly Diab"}, {"id":26,"name":"Anwar Abdallah Abou Ryala"}, {"id":27,"name":"Asmaa Hassan Al-Ali"}, {"id":28,"name":"Aya Hussein Damlakhi"}, {"id":29,"name":"Badoui Boulos Ayoub"}, {"id":30,"name":"Bassam Semaan Makary"}, {"id":31,"name":"Batoul Jamal Aweek"}, {"id":32,"name":"Bedwany Joseph Abi Saba"}, {"id":33,"name":"Bedwin Georges Al Moukhtafie"}, {"id":34,"name":"Bilal Mostafa Hassoun"}, {"id":35,"name":"Bilal Ramez Al Azzaz"}, {"id":36,"name":"Boutros Elias Mrad"}, {"id":37,"name":"Carlos Leba Younes"}, {"id":38,"name":"Cedra Hassan Dannawei"}, {"id":39,"name":"Celina Mohamad Rima"}, {"id":40,"name":"Celine Chadi Kaddoum"}, {"id":41,"name":"Celine Nidal Salha"}, {"id":42,"name":"Ceren Jack Rizk"}, {"id":43,"name":"Chady Fadi Dahdah"}, {"id":44,"name":"Charbel Miled Sessine"}, {"id":45,"name":"Charbel Badoui Nassif"}, {"id":46,"name":"Charbel Boulos Dib"}, {"id":47,"name":"Charbel Georges Serhan"}, {"id":48,"name":"Charbel Joseph Wadih"}, {"id":49,"name":"Charbel Michel Nachmy"}, {"id":50,"name":"Charbel Michel Nakad"}, {"id":51,"name":"Charbel Miled Lichaa"}, {"id":52,"name":"Charbel Naaman El Teress"}, {"id":53,"name":"Charbel Raymond Antoun Tawk"}, {"id":54,"name":"Charbel Salim Frangieh"}, {"id":55,"name":"Charbel Sami Saliba"}, {"id":56,"name":"Charbel Tony Jerr"}, {"id":57,"name":"Chris Antonios Yaacoub"}, {"id":58,"name":"Christian Najib Ibrahim"}, {"id":59,"name":"Christina Ali Al Khoder"}, {"id":60,"name":"Christina Riad Sahyoun"}, {"id":61,"name":"Clara Elias Elias"}, {"id":62,"name":"Claudia Elias EL Khoury El Beainy"}, {"id":63,"name":"Cynthia Joseph Raad"}, {"id":64,"name":"Cynthia Mostapha Barakat"}, {"id":65,"name":"Dalal Wadah Diab"}, {"id":66,"name":"Dana Raif Mufarrij"}, {"id":67,"name":"Dany Maroun Tawk"}, {"id":68,"name":"David Roumanos Knayer Douaihy"}, {"id":69,"name":"Dolly Mostafa Chami"}, {"id":70,"name":"Dominic Charbel Rouhana"}, {"id":71,"name":"Douaa Nasser Metlej"}, {"id":72,"name":"Elena Elia Tlayji"}, {"id":73,"name":"Elena Wadih Al Masry"}, {"id":74,"name":"Elias Moussa Nehme"}, {"id":75,"name":"Elie Badwi Bou Antoun"}, {"id":76,"name":"Elie Elias Elias"}, {"id":77,"name":"Elie Ziad El Khoury"}, {"id":78,"name":"Elio Daniel Kopty"}, {"id":79,"name":"Emelie Najib Sassine"}, {"id":80,"name":"Eva Ziad Makary"}, {"id":81,"name":"Fadi Ziad El Khoury"}, {"id":82,"name":"Farah Ibrahim Chalabi"}, {"id":83,"name":"Farah Sami Eid"}, {"id":84,"name":"Fatima El Zahraa Nidal Khaled"}, {"id":85,"name":"Firas Khaled Haj Khalil"}, {"id":86,"name":"Fouad Diaa Karam"}, {"id":87,"name":"Fouad Mouhamed Chaaban Kashlan"}, {"id":88,"name":"Gaelle Elias Zoghbi"}, {"id":89,"name":"Galina Elias Dreihi El Yazigi"}, {"id":90,"name":"Geoffrey Joseph Farah"}, {"id":91,"name":"George Samir Matta"}, {"id":92,"name":"George Sayed Yammine"}, {"id":93,"name":"Georges Fadi Kaddis"}, {"id":94,"name":"Georges Farid Sarkis"}, {"id":95,"name":"Ghassan Samer Baltaji"}, {"id":96,"name":"Ghazwa Amer Al Fawal"}, {"id":97,"name":"Gilbert Elia El Khoury"}, {"id":98,"name":"Grace Barrak Breich"}, {"id":99,"name":"Graziella Joseph Antoun"}, {"id":100,"name":"Hala Khaled Kayed"}, {"id":101,"name":"Hanan Khaled Khoder Kattar"}, {"id":102,"name":"Hiba Fadi Ghalayini"}, {"id":103,"name":"Hoda Lichaa Maroun"}, {"id":104,"name":"Houssam Mohamad Bader Mohamad Bader"}, {"id":105,"name":"Ibrahim Wassim Al Bitar"}, {"id":106,"name":"Imad George Darazi"}, {"id":107,"name":"Imane Rabie Maarbani"}, {"id":108,"name":"Islam Hadi El Jamal"}, {"id":109,"name":"Israa Mohamad Kassem"}, {"id":110,"name":"Issam Wassim Shibly"}, {"id":111,"name":"Jack Mtanios Wehbe"}, {"id":112,"name":"Jad Bakhos Derjani"}, {"id":113,"name":"Jad Amer Marhaba"}, {"id":114,"name":"Jad Chadi Saadeh"}, {"id":115,"name":"Jad Edmond Barakat"}, {"id":116,"name":"Jad Nasser Abo Ayed"}, {"id":117,"name":"Jad Talal El Hallak"}, {"id":118,"name":"Jad Youssef Tawk"}, {"id":119,"name":"Jamal Radwan Al Said"}, {"id":120,"name":"Jana Mahmoud Khalil"}, {"id":121,"name":"Jawad Hadi Hassoun"}, {"id":122,"name":"Jean Claude Fariz El Chami"}, {"id":123,"name":"Jennifer Charbel Boulos"}, {"id":124,"name":"Jenny Tony Khattar"}, {"id":125,"name":"Jessy Chawki Nemer"}, {"id":126,"name":"Joanna Kassem El Harrache"}, {"id":127,"name":"Jocelyne Antoine Tawk"}, {"id":128,"name":"Joe Georges Mouhawess"}, {"id":129,"name":"Johnny Jergy El Mouhawss"}, {"id":130,"name":"Joseph Boulos Yammine"}, {"id":131,"name":"Joseph Dib Frangieh"}, {"id":132,"name":"Joseph Keyrouz Keyrouz"}, {"id":133,"name":"Joseph Leba Youssef"}, {"id":134,"name":"Joseph Sarkis Mjally"}, {"id":135,"name":"Joseph Sarkis Youssef"}, {"id":136,"name":"Joseph Tony Chamoun"}, {"id":137,"name":"Joy Youssef Younes"}, {"id":138,"name":"Joya Tony Khattar"}, {"id":139,"name":"Joya Youssef Tawk"}, {"id":140,"name":"Julie Atallah Salah"}, {"id":141,"name":"Julie Joseph Abdo"}, {"id":142,"name":"Karim Mohannad Hwalla"}, {"id":143,"name":"Khaled Rami Karaali"}, {"id":144,"name":"Khaled Walid Akkari"}, {"id":145,"name":"Khalil Sarkis Al Makary"}, {"id":146,"name":"Lara Antoine Douaihy"}, {"id":147,"name":"Lea Fadi Missy"}, {"id":148,"name":"Leen Walid Obeid"}, {"id":149,"name":"Luna Hani Haidar"}, {"id":150,"name":"Lutchia Miled Zeidan"}, {"id":151,"name":"Maher Rami Karaali"}, {"id":152,"name":"Maickel Badoui Mourani"}, {"id":153,"name":"Majd Hilal Ahmad Agha Al Abdallah"}, {"id":154,"name":"Majd Madian Al Nazer"}, {"id":155,"name":"Manuel Philippe Khoury Hanna"}, {"id":156,"name":"Marcel Georges Semaan"}, {"id":157,"name":"Maria Joseph Wadih"}, {"id":158,"name":"Maria Milad Kanaan"}, {"id":159,"name":"Mariane Mahmoud El Ali"}, {"id":160,"name":"Maroun Semaan Doueihy"}, {"id":161,"name":"Martine Esper Al Haddad"}, {"id":162,"name":"Mauricio Charbel Elias"}, {"id":163,"name":"Maya Antonios Al-Rawady"}, {"id":164,"name":"Mays Waleed Mkhiemir"}, {"id":165,"name":"Melhem Badoui Mourani"}, {"id":166,"name":"Michael Joseph Hamaty"}, {"id":167,"name":"Mira Mohamad Saade"}, {"id":168,"name":"Mirna Samir Monla"}, {"id":169,"name":"Mohamad Rabih Al Sabbagh"}, {"id":170,"name":"Mohamad Omar Tabbal"}, {"id":171,"name":"Mohamad Rachid Haidar"}, {"id":172,"name":"Monica Emil Bou Lattouf"}, {"id":173,"name":"Mouffaq Mohammad Saada"}, {"id":174,"name":"Myriam Jean Al Makary"}, {"id":175,"name":"Nadine Issam Zeidan"}, {"id":176,"name":"Najwa Khaled Mhamad"}, {"id":177,"name":"Nancy Rajai Mobachar"}, {"id":178,"name":"Nour Alaa Rabaa"}, {"id":179,"name":"Nourhan Houssam Eid"}, {"id":180,"name":"Omar Abdul Aziz Saleh Moussa"}, {"id":181,"name":"Omar Fouad Khaled"}, {"id":182,"name":"Omar Ghanem Sleem"}, {"id":183,"name":"Omar Mohamad Barghache"}, {"id":184,"name":"Omar Salah Hmaydan"}, {"id":185,"name":"Oussama Georges Saade"}, {"id":186,"name":"Oussama Mohamad Al Masri"}, {"id":187,"name":"Patrick Sayed Antoun"}, {"id":188,"name":"Paul Joseph Slaymen"}, {"id":189,"name":"Peter Pierre Mrad"}, {"id":190,"name":"Pierre Claude Bou Nehme"}, {"id":191,"name":"Rachad Azzam El Merabi"}, {"id":192,"name":"Rachid Abed El Hadi Dahabi"}, {"id":193,"name":"Rafka Alfred Chakty"}, {"id":194,"name":"Rafka Nazih Hadchity"}, {"id":195,"name":"Rawan Jamal Naboulsi"}, {"id":196,"name":"Rawan Samih Darwich"}, {"id":197,"name":"Ray Rabih Nehme"}, {"id":198,"name":"Ray Yazbeck Chehade"}, {"id":199,"name":"Rayan Ghassan Hamzeh"}, {"id":200,"name":"Rayan Imad Alagha"}, {"id":201,"name":"Razan Bahaa El Kadi"}, {"id":202,"name":"Rebecca Antoine Tannous"}, {"id":203,"name":"Richard Raymond Bouty"}, {"id":204,"name":"Riwa Hanna Sarkis"}, {"id":205,"name":"Rony Tony Zoghby"}, {"id":206,"name":"Roudy Marky Ayoub"}, {"id":207,"name":"Roudy Sarkis Frangieh"}, {"id":208,"name":"Safaa Rabie El Mir"}, {"id":209,"name":"Said Hani Abdul Ghani"}, {"id":210,"name":"Said Miled Saliba"}, {"id":211,"name":"Sally Fouad Masri"}, {"id":212,"name":"Sana Khaled Haj Khalil"}, {"id":213,"name":"Sanaa Youssef Khalaf"}, {"id":214,"name":"Sandy Ghassan Khaddour"}, {"id":215,"name":"Sedra Atallah Salah"}, {"id":216,"name":"Serena Jean El Khoury"}, {"id":217,"name":"Serena Marwan Khoury"}, {"id":218,"name":"Serine Omar Arour"}, {"id":219,"name":"Serrano Youssef Al Hajj"}, {"id":220,"name":"Simon Fadi Daoud"}, {"id":221,"name":"Sindy Samir Tawk"}, {"id":222,"name":"Sirine Houssam Tlayge"}, {"id":223,"name":"Sleiman Ghaleb Saadeh"}, {"id":224,"name":"Sleimen Al Wazir Georges Fadel"}, {"id":225,"name":"Sonia Charbel Dgheim"}, {"id":226,"name":"Sonia Georges Dghaim"}, {"id":227,"name":"Sophie Samer Sardouk"}, {"id":228,"name":"Soulayma Dory Lteif"}, {"id":229,"name":"Stephanie Estephan Sardouk"}, {"id":230,"name":"Steven Naim Morkos Douaihy"}, {"id":231,"name":"Tatiana Assaad Khattar Rahme"}, {"id":232,"name":"Tatiana Wissam Zammar"}, {"id":233,"name":"Teddy Keyrouz Keyrouz"}, {"id":234,"name":"Tia Antonios Bayssary"}, {"id":235,"name":"Toni Kabalan Frangieh"}, {"id":236,"name":"Tony Dori Greije"}, {"id":237,"name":"Tony Nabil Frangieh"}, {"id":238,"name":"Tony Najib Hkayem"}, {"id":239,"name":"Tony Wahib Finianos"}, {"id":240,"name":"Tony Youssef Frangieh"}, {"id":241,"name":"Toufic Elie Radi"}, {"id":242,"name":"Tracy Charbel Rouhana"}, {"id":243,"name":"Vanessa Badoui Al Hazzouri"}, {"id":244,"name":"Vanessa Pierre Gebrayel"}, {"id":245,"name":"Victor Nidal Al Najjar"}, {"id":246,"name":"Wajih Wadih El Masri"}, {"id":247,"name":"Yara Elias Kheir"}, {"id":248,"name":"Yorgo Charbel Al Alam"}, {"id":249,"name":"Yousof Mohammad Houssein"}, {"id":250,"name":"Youssef Houssein Ayash"}, {"id":251,"name":"Youssef Mtanios Wehbe"}, {"id":252,"name":"Youssef Tony Makary"}, {"id":253,"name":"Zoya Tony Haddad"}
+];
+
+
+const INITIAL_CANDIDATES_DATA = NAME_LIST.map((candidate) => ({
+    ...candidate,
+    isElected: false, 
+    localId: `candidate-${candidate.id}`, 
+}));
+
+
+// --- Firebase Logic Functions ---
+
+/**
+ * Initializes the candidates collection with mock data if it is empty.
+ */
+async function seedCandidatesIfEmpty(dbInstance, currentAppId) {
+    const path = getCollectionPath(currentAppId);
+    const candidatesCollectionRef = dbInstance.collection(path);
+
+    try {
+        // Fetch only 1 document to quickly check if the collection is populated
+        const snapshot = await candidatesCollectionRef.limit(1).get();
+        
+        // Only run seeding if collection is completely empty
+        if (snapshot.size === 0) {
+            console.warn(`[SEEDING] Collection is empty. Seeding initial data (${INITIAL_CANDIDATES_DATA.length} records)...`);
+            const batch = dbInstance.batch();
+
+            INITIAL_CANDIDATES_DATA.forEach(candidate => {
+                const docId = candidate.localId; 
+                const docRef = candidatesCollectionRef.doc(docId);
+                // Use set() to overwrite/create the document
+                batch.set(docRef, candidate);
+            });
+            await batch.commit();
+            console.log("[SEEDING] Initial data seeding complete.");
+        } else {
+            console.log(`[SEEDING] Collection found non-empty. Skipping seeding.`);
+        }
+    } catch (error) {
+        console.error("Error during data seeding (Check Firestore Write Rules!):", error);
+    }
+}
+
+
+// --- Component Definitions ---
+
+// --- Pie Chart Components (Simulated using SVG for demonstration) ---
+const PieChartVisualization = ({ data }) => {
+  const total = data.reduce((sum, item) => sum + item.value, 0);
+
+  if (total === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center p-4">
+        <div className="w-48 h-48 sm:w-64 sm:h-64 relative bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-semibold">
+          No Data
+        </div>
+        <div className="mt-6 space-y-2 w-full max-w-xs text-center text-sm text-gray-500">
+          No candidates available to calculate distribution.
+        </div>
+      </div>
+    );
+  }
+
+  let cumulativePercentage = 0;
+
+  const getStrokeDasharray = (value, color) => {
+    const percentage = (value / total) * 100;
+    const start = cumulativePercentage;
+    cumulativePercentage += percentage;
+    
+    if (value === 0) return null;
+
+    return (
+      <circle
+        key={color}
+        r="30%"
+        cx="50%"
+        cy="50%"
+        fill="none"
+        stroke={color}
+        strokeWidth="20%"
+        // Use percentage and remaining for the dash pattern
+        strokeDasharray={`${percentage} ${100 - percentage}`} 
+        // Offset starts the arc correctly
+        strokeDashoffset={`-${start}`} 
+        style={{ transition: 'stroke-dashoffset 0.5s ease' }}
+      />
+    );
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center p-4">
+      <div className="w-48 h-48 sm:w-64 sm:h-64 relative">
+        <svg viewBox="0 0 100 100" className="w-full h-full transform -rotate-90">
+          <circle r="30%" cx="50%" cy="50%" fill="#f3f4f6" stroke="none" />
+          {data.map((item, index) => getStrokeDasharray(item.value, item.color))}
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center text-center">
+          <div className="font-bold text-xl text-gray-800">
+            {total} Total
+          </div>
+        </div>
+      </div>
+      <div className="mt-6 space-y-2 w-full max-w-xs">
+        {data.map((entry, index) => (
+          <div key={`legend-${index}`} className="flex justify-between items-center text-sm">
+            <div className="flex items-center space-x-2">
+              <span className="w-3 h-3 rounded-full shadow" style={{ backgroundColor: entry.color }}></span>
+              <span className="font-medium text-gray-700">{entry.name}</span>
+            </div>
+            <span className="font-extrabold text-gray-900">
+              {entry.value} ({total > 0 ? ((entry.value / total) * 100).toFixed(1) : '0.0'}%)
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// --- ICON Definitions ---
+const icons = {
+    Users: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    Trophy: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5h2a2.5 2.5 0 0 1 0 5"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5h-2a2.5 2.5 0 0 0 0 5"/><path d="M10 17H8l-1 2H5l1-2v-3.6L2.5 9h19L18 13.4V17h-2l-1-2h-1"/><path d="M14 17h-4l-1 2H9"/></svg>,
+    XCircle: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>,
+    Filter: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>,
+    CheckCircle: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>,
+    Search: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>,
+    Loader: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite" /></svg>
+};
+
+
+// --- Login Screen Component ---
+const LoginScreen = ({ setMode }) => {
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        setError('');
+        if (password === ADMIN_PASSWORD) {
+            setMode('admin');
+        } else {
+            setError('Invalid password. Please try again.');
+        }
+    };
+
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+            <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md transform transition-all duration-300 hover:shadow-3xl">
+                <div className="text-center mb-8">
+                    <h1 className="text-3xl font-extrabold text-indigo-700">Election Console Access</h1>
+                    <p className="text-gray-500 mt-2">Select your role to continue.</p>
+                </div>
+
+                {/* Viewer Mode Access */}
+                <button
+                    onClick={() => setMode('viewer')}
+                    className="w-full mb-4 px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-[1.02] active:scale-95 flex items-center justify-center"
+                >
+                    <icons.Users className="w-5 h-5 mr-2"/> Continue as Viewer (Read-Only)
+                </button>
+
+                <div className="relative my-6">
+                    <div className="absolute inset-0 flex items-center">
+                        <div className="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div className="relative flex justify-center text-sm">
+                        <span className="px-2 bg-white text-gray-500 font-semibold">OR ADMIN LOGIN</span>
+                    </div>
+                </div>
+
+                {/* Admin Login Form */}
+                <form onSubmit={handleLogin}>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="password">
+                            Admin Password
+                        </label>
+                        <input
+                            id="password"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Enter password for full control"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 shadow-inner transition-shadow"
+                        />
+                    </div>
+                    
+                    {error && (
+                        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-lg mb-4 text-sm font-medium">
+                            {error}
+                        </div>
+                    )}
+
+                    <button
+                        type="submit"
+                        className="w-full px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:scale-[1.02] active:scale-95 flex items-center justify-center"
+                    >
+                        <icons.Trophy className="w-5 h-5 mr-2"/> Login as Administrator
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+};
+
+
+// --- MAIN APP COMPONENT ---
+function App() {
+    // State management
+    const [mode, setMode] = useState("login");
+    const [candidates, setCandidates] = useState([]);
+    const [search, setSearch] = useState("");
+    const [filter, setFilter] = useState("ALL");
+    const [isLoading, setIsLoading] = useState(true);
+
+    /* Firebase State */
+    const [authReady, setAuthReady] = useState(false);
+    const [userId, setUserId] = useState(null);
+
+    // 1. Firebase Authentication
+    useEffect(() => {
+        // FIX: Enable Firebase debug logging here to catch any permission errors early
+        if (window.firebase && window.firebase.firestore) {
+             window.firebase.firestore.setLogLevel('debug');
+        }
+
+        let authCompleted = false;
+
+        // FALLBACK TIMEOUT: If auth doesn't resolve in 5 seconds, force authentication ready
+        const timeoutId = setTimeout(() => {
+            if (!authCompleted) {
+                console.warn("Authentication timed out (5s). Forcing UI update.");
+                setUserId(u => u || crypto.randomUUID()); 
+                setAuthReady(true); 
+            }
+        }, 5000); // 5 second timeout
+
+        // Authentication Listener and Sign-in
+        const unsubscribeAuth = firestoreAuth.onAuthStateChanged(async (user) => {
+            clearTimeout(timeoutId);
+            authCompleted = true;
+
+            try {
+                if (!user) {
+                    // Attempt to sign in if no user is found
+                    let userCred;
+                    if (INITIAL_AUTH_TOKEN) {
+                        userCred = await firestoreAuth.signInWithCustomToken(INITIAL_AUTH_TOKEN);
+                    } else {
+                        userCred = await firestoreAuth.signInAnonymously();
+                    }
+                    user = userCred.user;
+                }
+
+                if (user) {
+                    setUserId(user.uid);
+                    // After successful sign-in, attempt to seed data 
+                    await seedCandidatesIfEmpty(firestoreDb, APP_ID);
+                }
+
+            } catch (error) {
+                console.error("Critical Authentication Error:", error);
+                setUserId(crypto.randomUUID());
+            } finally {
+                // CRUCIAL: Always set authReady to true to unblock the data listener
+                setAuthReady(true);
+            }
+        });
+
+        return () => {
+            clearTimeout(timeoutId);
+            unsubscribeAuth();
+        };
+    }, []);
+
+    // 2. Firestore Realtime Listener
+    useEffect(() => {
+        // Guard clause: Do not run Firestore query until auth is ready 
+        if (!authReady || !userId) {
+            return;
+        }
+
+        const path = getCollectionPath(APP_ID);
+        const candidatesCollectionRef = firestoreDb.collection(path);
+        
+        // Listen to candidates collection in real-time
+        const unsubscribeSnapshot = candidatesCollectionRef
+            .onSnapshot(snapshot => {
+                let data = snapshot.docs.map(doc => ({
+                    // Use the actual Firestore document ID (doc.id) for the local identifier
+                    localId: doc.id, 
+                    ...doc.data()
+                }));
+
+                // Client-side sorting by the 'id' field
+                data.sort((a, b) => (a.id || 0) - (b.id || 0));
+
+                setCandidates(data);
+                setIsLoading(false);
+            }, (error) => {
+                console.error(`CRITICAL FIRESTORE READ ERROR on path: ${path}`, error);
+                setCandidates([]); // Clear candidates on error
+                setIsLoading(false); 
+            });
+
+        return () => unsubscribeSnapshot();
+    }, [authReady, userId]);
+
+    /* ---------------- Update Firestore ---------------- */
+    async function setStatus(localDocId, newValue) {
+        if (mode !== "admin") return;
+
+        try {
+            // Use localDocId which holds the Firebase document ID (e.g., 'candidate-1')
+            const docRef = firestoreDb.collection(getCollectionPath(APP_ID)).doc(localDocId);
+            await docRef.update({ isElected: newValue });
+            console.log(`Status updated for ${localDocId} to ${newValue}`);
+        } catch (error) {
+            console.error("Error updating candidate status:", error);
+        }
+    }
+
+    // --- Calculations and Aggregations (Efficient Logic) ---
+    const { totalCount, electedCount, notElectedCount, electedPercentage, chartData } = useMemo(() => {
+        const total = candidates.length;
+        const elected = candidates.filter(p => p.isElected).length;
+        const notElected = total - elected;
+
+        const electedPct = total > 0 ? ((elected / total) * 100).toFixed(1) : '0.0';
+        const notElectedPct = total > 0 ? ((notElected / total) * 100).toFixed(1) : '0.0';
+        
+        // Custom colors matching Tailwind definitions
+        const COLORS = ['#ca8a04', '#2563eb']; // Yellow for Elected, Blue for Not Elected
+
+        const data = [
+            { name: 'Elected', value: elected, color: COLORS[0], percentage: electedPct },
+            { name: 'Not Elected', value: notElected, color: COLORS[1], percentage: notElectedPct },
+        ];
+
+        return {
+            totalCount: total,
+            electedCount: elected,
+            notElectedCount: notElected,
+            electedPercentage: electedPct,
+            chartData: data,
+        };
+    }, [candidates]);
+
+
+    /* -------------- Filtering Logic -------------- */
+    const filtered = useMemo(() => {
+        let list = candidates;
+        
+        // 1. Apply Election Status Filter
+        if (filter === 'ELECTED') {
+          list = list.filter(p => p.isElected);
+        } else if (filter === 'NOT_ELECTED') {
+          list = list.filter(p => !p.isElected);
+        }
+
+        // 2. Apply Search Term Filter
+        if (search) {
+            const lowerCaseSearchTerm = search.toLowerCase();
+            list = list.filter(p => p.name.toLowerCase().includes(lowerCaseSearchTerm));
+        }
+        
+        // Final sorting by ID (original order)
+        return list.sort((a, b) => (a.id || 0) - (b.id || 0));
+    }, [candidates, filter, search]);
+    
+    // --- Utility Functions ---
+    const getFilterButtonClass = (buttonFilter) =>
+        `px-4 py-2 text-sm font-bold rounded-lg transition-all duration-300 transform shadow-md ${      
+            filter === buttonFilter
+            ? 'bg-indigo-700 text-white hover:bg-indigo-800'
+            : 'bg-white text-gray-700 border border-gray-300 hover:bg-indigo-50 active:scale-95'
+        }`;
+
+    // --- Dashboard Card Component ---
+    const StatCard = ({ title, value, icon: Icon, colorClass, percentage }) => (
+        <div className="bg-white p-5 rounded-xl shadow-lg border-b-4 border-indigo-500 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="flex items-start justify-between">
+                <div>
+                    <p className="text-sm font-medium text-gray-500">{title}</p>
+                    <p className="text-3xl font-extrabold text-gray-900 mt-1">{value}</p>
+                </div>
+                <div className={`p-3 rounded-full ${colorClass} bg-opacity-20`}>
+                    <Icon className={`w-6 h-6 ${colorClass}`} />
+                </div>
+            </div>
+            {percentage && (
+                <p className="mt-3 text-sm">
+                    <span className={`font-extrabold ${colorClass}`}>
+                        {percentage}%
+                    </span>
+                    <span className="text-gray-500"> of total participants</span>
+                </p>
+            )}
+        </div>
+    );
+
+    if (mode === "login") return <LoginScreen setMode={setMode} />;
+
+    // Loading State
+    if (isLoading && !authReady) {
+        return (
+            <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+                <icons.Loader className="w-12 h-12 text-indigo-600 animate-spin" />
+                <h1 className="text-xl font-bold text-gray-800 mt-4">Connecting to Database...</h1>
+                <p className="text-gray-500">Awaiting real-time data from Firestore.</p>
+            </div>
+        );
+    }
+
+    return (
+        <div className="console-container p-4 md:p-8 font-inter">
+
+            <header className="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-6 rounded-xl shadow-lg">
+                <div>
+                    <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+                        Professional Election Status Console
+                    </h1>
+                    <p className="text-lg text-gray-500 mt-1">
+                        Mode: 
+                        <strong className={`font-extrabold ml-1 ${mode === 'admin' ? 'text-indigo-600' : 'text-blue-600'}`}>
+                            {mode === 'admin' ? 'ADMINISTRATOR (Full Control)' : 'VIEWER (Read-Only)'}
+                        </strong>
+                        <span className="text-xs text-gray-400">| User ID: {userId || 'N/A'}</span>
+                    </p>
+                </div>
+                <button
+                    onClick={() => setMode("login")}
+                    className="mt-4 md:mt-0 px-5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl font-semibold transition shadow-md hover:shadow-lg">
+                    Exit
+                </button>
+            </header>
+
+            {/* --- Dashboard Metrics (Calculations) --- */}
+            <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <StatCard
+                    title="Total Candidates"
+                    value={totalCount}
+                    icon={icons.Users}
+                    colorClass="text-indigo-600"
+                />
+                <StatCard
+                    title="Elected Candidates"
+                    value={electedCount}
+                    icon={icons.Trophy}
+                    colorClass="text-yellow-600"
+                    percentage={electedPercentage}
+                />
+                <StatCard
+                    title="Not Elected (Remaining)"
+                    value={notElectedCount}
+                    icon={icons.XCircle}
+                    colorClass="text-blue-600"
+                    percentage={(100 - electedPercentage).toFixed(1)}
+                />
+            </section>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* --- Visualization (Pie Chart) --- */}
+                <section className="lg:col-span-1 bg-white p-6 rounded-xl shadow-2xl z-10">
+                    <h2 className="text-xl font-bold text-gray-800 mb-4 border-b pb-2">
+                        Election Status Distribution
+                    </h2>
+                    <div className="flex justify-center items-center">
+                        <PieChartVisualization data={chartData} />
+                    </div>
+                </section>
+
+                {/* --- List, Filters, and Search --- */}
+                <section className="lg:col-span-2 bg-white p-6 rounded-xl shadow-2xl relative z-20">
+                    <div className="mb-6">
+                        <h2 className="text-xl font-bold text-gray-800 border-b pb-2">
+                            Candidate Control Panel ({filtered.length})
+                        </h2>
+                    </div>
+
+                    {/* Search and Filter Controls Row */}
+                    <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4 relative z-20">
+                        {/* Search Input */}
+                        <div className="relative w-full sm:w-1/2">
+                            <icons.Search className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+                            <input
+                                type="text"
+                                placeholder="Search candidate by name..."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition-shadow duration-200 shadow-inner"
+                            />
+                        </div>
+
+                        {/* Filter Buttons */}
+                        <div className="flex space-x-3 items-center">
+                            <icons.Filter className="w-5 h-5 text-gray-500 hidden sm:block" />
+                            <button
+                                onClick={() => setFilter('ALL')}
+                                className={getFilterButtonClass('ALL')}
+                            >
+                                All
+                            </button>
+                            <button
+                                onClick={() => setFilter('ELECTED')}
+                                className={getFilterButtonClass('ELECTED')}
+                            >
+                                Elected ({electedCount})
+                            </button>
+                            <button
+                                onClick={() => setFilter('NOT_ELECTED')}
+                                className={getFilterButtonClass('NOT_ELECTED')}
+                            >
+                                Remaining ({notElectedCount})
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Candidate List */}
+                    <div className="max-h-[70vh] overflow-y-auto space-y-3 pr-2 custom-scrollbar">
+                        {filtered.length > 0 ? (
+                            filtered.map((p) => (
+                                <div
+                                    key={p.localId} 
+                                    className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 ease-in-out border-2 shadow-sm hover:shadow-lg ${         
+                                        p.isElected
+                                        ? 'bg-yellow-100 border-yellow-500' 
+                                        : 'bg-blue-100 border-blue-500'
+                                    }`}            
+                                >
+                                    <div className="flex flex-col sm:flex-row sm:items-center space-x-0 sm:space-x-4">
+                                        <span className="text-sm font-mono text-gray-600 mr-2 w-10 hidden sm:inline-block font-bold">{p.id || p.localId}</span>
+                                        <span className="text-base font-semibold text-gray-900">{p.name}</span>
+                                    </div>
+                                    <div className="flex items-center space-x-3">
+                                        <span
+                                            className={`px-3 py-1 text-xs font-extrabold rounded-full min-w-[110px] text-center shadow ${              
+                                                p.isElected
+                                                ? 'bg-yellow-600 text-gray-900'
+                                                : 'bg-blue-600 text-white'
+                                            }`}                  
+                                        >
+                                            {p.isElected ? '✅ ELECTED' : '❌ REMAINING'}
+                                        </span>
+                                        
+                                        {/* Status Toggle Button (Visible only in Admin Mode) */}
+                                        {mode === 'admin' && (
+                                            <button
+                                                onClick={() => setStatus(p.localId, !p.isElected)}
+                                                title={`Toggle Status to ${p.isElected ? 'Not Elected' : 'Elected'}`}
+                                                className={`p-2 rounded-full text-white transition-all duration-300 hover:scale-110 active:scale-90 shadow-md ${            
+                                                    p.isElected 
+                                                    ? 'bg-blue-700 hover:bg-blue-800'
+                                                    : 'bg-yellow-700 hover:bg-yellow-800'
+                                                }`}                      
+                                            >
+                                                {p.isElected ? <icons.XCircle className="w-4 h-4" /> : <icons.CheckCircle className="w-4 h-4" />}
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <div className="text-center py-12 text-gray-600 bg-gray-50 border-4 border-dashed border-indigo-300 rounded-xl">
+                                <icons.Search className="w-8 h-8 mx-auto mb-2 text-indigo-500" />
+                                <p className="font-semibold">No Candidates Found</p>
+                                <p className="text-sm text-gray-500">Please check your network connection or Firestore access rules.</p>
+                            </div>
+                        )}
+                    </div>
+                </section>
+            </div>
+        </div>
+    );
+}
+
+// === Render the App ===
+const container = document.getElementById('root');
+if (container) {
+    // Using ReactDOM.createRoot for React 18 compatibility
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />);
+}
+</script>
+</body>
 </html>        (Using compatibility version for easy script loading)
     -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -3140,6 +3733,7 @@ root.render(<App />);
 </script>
 </body>
 </html>
+
 
 
 
