@@ -1,39 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Election Status Console</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Election Status Console</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom styles for better mobile experience and overall feel */
-        .console-container {
-            max-width: 1024px;
-            margin: auto;
-            min-height: 100vh;
-        }
-        .candidate-card-base {
-            transition: all 0.3s ease;
-        }
-    </style>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- React + Babel -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Firebase Modular Imports (Exposed globally for Babel/React) -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, updateDoc, onSnapshot, collection, query, setLogLevel, getDocs, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+  <!-- ✅ Firebase v8 (REQUIRED — DO NOT CHANGE!) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-        // Expose all necessary Firebase functions globally for the embedded Babel script
-        window.Firebase = {
-            initializeApp, getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged,
-            getFirestore, doc, updateDoc, onSnapshot, collection, query, setLogLevel, getDocs, setDoc
+  <!-- Firebase Init -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCfCFY3f5SN97r9_SfQRacvIQRJLXz37wo",
+      authDomain: "aut-lawe2eh-shateb.firebaseapp.com",
+      projectId: "aut-lawe2eh-shateb",
+      storageBucket: "aut-lawe2eh-shateb.firebasestorage.app",
+      messagingSenderId: "1094948074968",
+      appId: "1:1094948074968:web:480fc2e77d7c69cd256ead",
+      measurementId: "G-JQX7X47T8N",
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+</head>
+
+<body class="bg-gray-50">
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    const { useState, useEffect } = React;
+
+    const ADMIN_PASSWORD = "AUT2025";
+
+    function Login({ setMode }) {
+      const [pw, setPw] = useState("");
+      const [error, setError] = useState("");
+
+      function submit(e) {
+        e.preventDefault();
+        if (pw === ADMIN_PASSWORD) setMode("admin");
+        else setError("Invalid password.");
+      }
+
+      return (
+        <div className="min-h-screen flex items-center justify-center p-6">
+          <div className="bg-white p-6 rounded-xl shadow-xl w-full max-w-md">
+            <h1 className="text-xl font-bold text-center mb-4">
+              Election Console Login
+            </h1>
+
+            <button
+              className="w-full py-3 mb-4 bg-blue-600 text-white font-bold rounded-lg"
+              onClick={() => setMode("viewer")}
+            >
+              Continue as Viewer
+            </button>
+
+            <form onSubmit={submit}>
+              <input
+                type="password"
+                placeholder="Admin password"
+                className="w-full p-3 border rounded-lg mb-3"
+                value={pw}
+                onChange={(e) => setPw(e.target.value)}
+              />
+
+              {error && (
+                <p className="text-red-600 text-sm mb-3">{error}</p>
+              )}
+
+              <button
+                className="w-full py-3 bg-indigo-600 text-white font-bold rounded-lg"
+              >
+                Login as Admin
+              </button>
+            </form>
+          </div>
+        </div>
+      );
+    }
+
+    function App() {
+      const [mode, setMode] = useState("login");
+      const [candidates, setCandidates] = useState(null);
+      const [search, setSearch] = useState("");
+      const [filter, setFilter] = useState("ALL");
+
+      useEffect(() => {
+        db.collection("candidates")
+          .orderBy("id")
+          .onSnapshot((snap) => {
+            const arr = snap.docs.map((d) => d.data());
+            setCandidates(arr);
+          });
+      }, []);
+
+      function toggle(localId, current) {
+        db.collection("candidates")
+          .doc(localId)
+          .update({ isElected: !current });
+      }
+
+      if (mode === "login") return <Login setMode={setMode} />;
+
+      if (!candidates)
+        return (
+          <div className="text-center mt-40 text-xl text-gray-600">
+            Loading election data…
+          </div>
+        );
+
+      const filtered = candidates.filter((c) => {
+        if (filter === "ELECTED" && !c.isElected) return false;
+        if (filter === "NOT" && c.isElected) return false;
+        if (search && !c.name.toLowerCase().includes(search.toLowerCase()))
+          return false;
+        return true;
+      });
+
+      return (
+        <div className="p-6 max-w-4xl mx-auto">
+          <header className="mb-6 bg-white shadow p-4 rounded-lg flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold">Election Status Console</h1>
+              <p className="text-sm text-gray-500">
+                Mode:{" "}
+                <span
+                  className={
+                    mode === "admin"
+                      ? "text-indigo-600 font-bold"
+                      : "text-blue-600 font-bold"
+                  }
+                >
+                  {mode.toUpperCase()}
+                </span>
+              </p>
+            </div>
+
+            <button
+              className="px-4 py-2 bg-red-600 text-white rounded-lg font-bold"
+              onClick={() => setMode("login")}
+            >
+              Exit
+            </button>
+          </header>
+
+          <div className="flex gap-4 mb-4">
+            <input
+              type="text"
+              placeholder="Search by candidate name…"
+              className="flex-1 p-3 border rounded-lg"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+
+            <select
+              className="p-3 border rounded-lg"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+            >
+              <option value="ALL">All Candidates</option>
+              <option value="ELECTED">Elected</option>
+              <option value="NOT">Remaining</option>
+            </select>
+          </div>
+
+          <div className="space-y-3">
+            {filtered.map((c) => (
+              <div
+                key={c.localId}
+                className={
+                  "p-4 rounded-lg border-2 flex justify-between items-center " +
+                  (c.isElected
+                    ? "bg-yellow-100 border-yellow-500"
+                    : "bg-blue-100 border-blue-500")
+                }
+              >
+                <span className="font-semibold">
+                  {c.id}. {c.name}
+                </span>
+
+                <div className="flex items-center gap-3">
+                  <span
+                    className={
+                      "px-3 py-1 rounded-full text-white text-xs font-bold " +
+                      (c.isElected ? "bg-yellow-600" : "bg-blue-600")
+                    }
+                  >
+                    {c.isElected ? "ELECTED" : "REMAINING"}
+                  </span>
+
+                  {mode === "admin" && (
+                    <button
+                      className={
+                        "px-3 py-1 rounded-lg text-white font-bold " +
+                        (c.isElected ? "bg-blue-600" : "bg-yellow-600")
+                      }
+                      onClick={() => toggle(c.localId, c.isElected)}
+                    >
+                      Toggle
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+</body>
+</html>
         };
 
         // Configuration access
@@ -397,3 +587,4 @@ root.render(<App />);
 </script>
 </body>
 </html>
+
